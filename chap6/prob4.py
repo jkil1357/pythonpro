@@ -1,7 +1,7 @@
 word = "PYTHON"
 word_l = ["-"] * len(word)
 letter = []
-att = len(word)
+att = 10
 
 def mprint():
     print("\nYou've used the following letters:")
