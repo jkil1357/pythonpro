@@ -36,8 +36,7 @@ def computer(board, player):
             print("\nI shall take square number", move)
             return move
 
-def tic_tac_toe():
-    # 게임판 초기화
+def tic_tac_toe():    
     game_board = [' '] * 9
 
     piece = input("\nDo you require the first move? (y/n): ")
