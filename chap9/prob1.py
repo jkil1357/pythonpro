@@ -4,3 +4,5 @@ class Critter:
 
 crit = Critter()
 crit.talk()
+
+input("\nPress the enter key to exit.")
