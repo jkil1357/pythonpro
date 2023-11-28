@@ -1,47 +1,37 @@
 class Critter(object):
 
-    def __init__(self, name, hunger = 0, boredom = 0):
+    def __init__(self, name, mood = 2):
         self.name = name
-        self.hunger = hunger
-        self.boredom = boredom
+        self.mood = mood
 
-    def __pass_time(self):
-        self.hunger += 1
-        self.boredom += 1
+    def setMood(level):
+        self.mood = level
 
-    @property
-    def mood(self):
-        unhappiness = self.hunger + self.boredom
-        if unhappiness < 5:
-            m = "happy"
-        elif 5 <= unhappiness <= 10:
-            m = "okay"
-        elif 11 <= unhappiness <= 15:
-            m = "frustrated"
-        else:
-            m = "mad"
-        return m
-
+    def getMood():
+        return self.mood
+    
     def talk(self):
-        print("I'm", self.name, "and I feel", self.mood, "now.")
-        self.__pass_time()
+        if self.mood >= 4:
+            print("I'm", self.name, "and I feel happy now.")
+        elif self.mood == 3:
+            print("I'm", self.name, "and I feel pleased now.")
+        elif self.mood == 2:
+            print("I'm", self.name, "and I feel frustradted now.")
+        elif self.mood <= 1:
+            print("I'm", self.name, "and I feel mad now.") 
+        self.mood -= 1
 
-    def eat(self, food=4):
-        print("Brruppp. Thank you.")
-        self.hunger -= food
-        if self.hunger < 0:
-            self.hunger = 0
-        self.__pass_time()
+    def feed(self):
+        print("Brruppp.")
+        self.mood += 1
 
-    def play(self, fun=4):
+    def play(self):
         print("Wheee!")
-        self.boredom -= fun
-        if self.boredom < 0:
-            self.boredom = 0
-        self.__pass_time()
+        self.mood += 1
+        
 
 def main():
-    crit_name = input("What’s your critter’s name?: ")
+    crit_name = input("What do you want to name your critter?: ")
     crit = Critter(crit_name)
     choice = None
     while choice != "0":
@@ -57,13 +47,13 @@ def main():
         print()
 
         if choice == "0":
-            print("Good-bye.")
+            break;
 
         elif choice == "1":
             crit.talk()
 
         elif choice == "2":
-            crit.eat()
+            crit.feed()
 
         elif choice == "3":
             crit.play()
