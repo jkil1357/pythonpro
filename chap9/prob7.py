@@ -4,10 +4,10 @@ class Critter(object):
         self.name = name
         self.mood = mood
 
-    def setMood(level):
+    def setMood(self, level):
         self.mood = level
 
-    def getMood():
+    def getMood(self):
         return self.mood
     
     def talk(self):
