@@ -9,10 +9,7 @@ class Food:
     def setCritterLevel(self, critter):
         critter.setMood(critter.getMood() + self.getLevel())
         
-
-
 class Critter(object):
-
     def __init__(self, name, mood = 2):
         self.name = name
         self.mood = mood
@@ -42,7 +39,6 @@ class Critter(object):
         print("Wheee!")
         self.mood += 1
         
-
 def main():
     crit_name = input("What do you want to name your critter?: ")
     crit = Critter(crit_name)
@@ -73,8 +69,7 @@ def main():
 
         1 - feedsstuff
         2 - meet
-        3 - cookie\n\nChoice: """)
-            
+        3 - cookie\n\nChoice: """)      
             if food_choice == "1":
                 crit.feed(food1)
             if food_choice == "2":
