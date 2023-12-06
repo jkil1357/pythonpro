@@ -18,7 +18,6 @@ class Card(object):
     def flip(self):
         self.is_face_up = not self.is_face_up
 
-
 class Hand(object):
     def __init__(self):
         self.cards = []
@@ -41,7 +40,6 @@ class Hand(object):
     def give(self, card, other_hand):
         self.cards.remove(card)
         other_hand.add(card)
-
 
 class Deck(Hand):
     def populate(self):
