@@ -94,7 +94,7 @@ class Deck(baseHand):
 
 class Player(Hand):
     def is_hitting(self):
-        response = ask_yes_no("\n" + self.name + ", do you want a hit? (Y/N): ")
+        response = ask_answer("\n" + self.name + ", do you want a hit? (Y/N): ")
         return response == "y"
 
     def bust(self):
@@ -209,13 +209,13 @@ class BJ_Game(object):
             player.clear()
         self.dealer.clear()
 
-def ask_yes_no(question):
+def ask_answer(question):
     response = None
     while response not in ("y", "n"):
         response = input(question).lower()
     return response
 
-def ask_number(question, low, high):
+def ask_num(question, low, high):
     response = None
     while response not in range(low, high):
         response = int(input(question))
@@ -225,7 +225,7 @@ if __name__ == "__main__":
     print("\t\tWelcome to Blackjack!\n")
 
     names = []
-    number = ask_number("How many players? (1 - 7): ", low=1, high=8)
+    number = ask_num("How many players? (1 - 7): ", low=1, high=8)
     for i in range(number):
         name = input("Enter the player name: ")
         names.append(name)
@@ -238,6 +238,6 @@ if __name__ == "__main__":
     while again != "n":
         game.play()
         game.new_deck()
-        again = ask_yes_no("\nDo you want to play again?: ")
+        again = ask_answer("\nDo you want to play again?: ")
 
     input("\n\nPress the enter key to exit.")
